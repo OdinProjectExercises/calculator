@@ -6,7 +6,7 @@ let expression = "";
 
 function add(a, b){return a + b};
 
-function substract(a, b){return a + b};
+function substract(a, b){return a - b};
 
 function multiply(a, b){return a * b};
 
@@ -26,7 +26,7 @@ function translate(expression){
     //first = parseInt(expression[0])
     //operator = expression[1]
     //second = parseInt(expression[2])
-    const operands = ['+', '-', 'x', '/']
+    const operands = ['+', "-", 'x', '/']
     operands.forEach((operand) =>{
         args = expression.split(operand);
         if (args.length === 2){
