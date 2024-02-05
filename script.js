@@ -1,6 +1,6 @@
 let first;
 let second;
-let operator;
+let operator ="";
 
 let expression = "";
 
@@ -21,6 +21,22 @@ function operate(first, operator, second){
 
     if (operator === "/"){return divide(first, second)};
 };
+
+function translate(expression){
+    //first = parseInt(expression[0])
+    //operator = expression[1]
+    //second = parseInt(expression[2])
+    const operands = ['+', '-', 'x', '/']
+    operands.forEach((operand) =>{
+        args = expression.split(operand);
+        if (args.length === 2){
+           first = parseInt(args[0]);
+            operator = operand;
+            second = parseInt(args[1]);
+            return;
+      };
+    });
+}
 
 const one = document.querySelector(".one");
 one.addEventListener('click', () =>{
@@ -114,5 +130,10 @@ clean.addEventListener('click', () =>{
 });
 const equal = document.querySelector(".equal");
 equal.addEventListener('click', () =>{
+    translate(expression)
+    const show = document.querySelector(".display");
+    expression = ""
+    show.innerText = operate(first, operator, second);
+
     
 });
